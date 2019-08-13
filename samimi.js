@@ -45998,7 +45998,6 @@ let turkishNouns = [
 "Web sitesi",
 "Web tarayıcısı",
 "web tasarım",
-"X.25",
 "yaba",
 "yabalama",
 "yaban",
