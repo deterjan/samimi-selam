@@ -5,7 +5,7 @@
       <title>Samimi Selamlama Sitesi</title>
       <script src="samimi.js"></script>
       <style type="text/css">
-      	/* http://cssdeck.com/labs/large-pressable-css-button*/
+         /* http://cssdeck.com/labs/large-pressable-css-button*/
          body {
          text-align: center;
          }
@@ -70,6 +70,18 @@
       <button onclick="regreet()">OLMADI YİNE</button>
       <script type="text/javascript">
          regreet();
+         
+         function copySelam(){
+         var range = document.createRange();
+         range.selectNodeContents(document.getElementById("selam"));
+         var selection = window.getSelection();
+         selection.removeAllRanges();
+         selection.addRange(range);
+         document.execCommand("copy");
+         alert("muhteşem selamı kopyaladınız");
+         }
+         
+         document.getElementById("selam").addEventListener("click", copySelam);
       </script>
    </body>
 </html>
