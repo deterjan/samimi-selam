@@ -66615,10 +66615,10 @@ function lastVowel(word) {
 
 function makePlural(noun) {
 	let last = lastVowel(noun);
-	if (last === 'a' || last === 'ı' || last === 'o' || last === 'u')
-		return noun + "larım";
-	else
+	if (last === 'e' || last === 'i' || last === 'ö' || last === 'ü' || last == undefined)
 		return noun + "lerim";
+	else
+		return noun + "larım";
 }
 
 function timedGreetingWords(hour) {
