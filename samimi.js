@@ -8528,7 +8528,6 @@ let turkishNouns = [
 "bitleme",
 "bitlenme",
 "bitler",
-"bitli baklanın da kör alıcısı olurmuş",
 "bitme",
 "bitmemişlik görünüşü",
 "bitmişlik görünüşü",
@@ -66639,4 +66638,8 @@ function makeGreeting() {
 	let pluralNoun = makePlural(pickRandom(turkishNouns));
 
 	return (greetingWords + " " + adjective + " " + pluralNoun);
+}
+
+function regreet() {
+	document.getElementById("selam").innerText = makeGreeting();
 }
