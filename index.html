@@ -63,22 +63,33 @@
          transform: translate(0, 4px);
          }
          button { outline: none; }
+         #footer {
+            position:absolute;
+            bottom:0;
+            right: 30px;
+            width:100%;
+            text-align:right;
+            height: 30px;
+         }
       </style>
    </head>
    <body>
       <h1 id="selam"></h1>
       <button onclick="regreet()">OLMADI YİNE</button>
+      <div id="footer">
+         bu boktan projeye ilham olan merve ve yağmur'a teşekkürler
+      </div>
       <script type="text/javascript">
          regreet();
          
          function copySelam(){
-         var range = document.createRange();
-         range.selectNodeContents(document.getElementById("selam"));
-         var selection = window.getSelection();
-         selection.removeAllRanges();
-         selection.addRange(range);
-         document.execCommand("copy");
-         alert("muhteşem selamı kopyaladınız");
+            var range = document.createRange();
+            range.selectNodeContents(document.getElementById("selam"));
+            var selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            document.execCommand("copy");
+            alert("muhteşem selamı kopyaladınız");
          }
          
          document.getElementById("selam").addEventListener("click", copySelam);
