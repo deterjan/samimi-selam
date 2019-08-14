@@ -66,12 +66,44 @@ function sonSesliKalindir(sozcuk) {
   return !sonSesliIncedir(sozcuk);
 }
 
+function kaynastirmasizEktir(tamlamaEki) {
+  return tamlamaEki.length == 1;
+}
+
+function sonHarfiKalinlastir(kok) {
+  const kalinHarita = {
+    "b": "p", 
+    "c": "ç", 
+    "d": "t", 
+    "g": "k", 
+    "ğ": "k"
+  }
+
+  const sonHarf = kok[kok.length-1];
+  const kalinSonHarf = kalinHarita[sonHarf];
+
+  if (kalinSonHarf !== undefined) {
+    return kok.slice(0, -1) + kalinSonHarf;
+  }
+  else {
+    return null;
+  }
+}
+
 function tamlamaEkiniTemizleOzel(sozcuk, tamlamaEki, sekilUyumu, sesUyumu) {
   const ekUzunlugu = tamlamaEki.length;
   let ek = ekiAl(sozcuk, ekUzunlugu);
   let kok = kokuAl(sozcuk, ekUzunlugu);
-  if (ek === tamlamaEki && sekilUyumu(kok) && sesUyumu(kok) && sozlukteBulunur(kok)) {
-    return kok;
+  
+  let kalinKok = sonHarfiKalinlastir(kok);
+
+  if (ek === tamlamaEki && sekilUyumu(kok) && sesUyumu(kok)) {
+    if (sozlukteBulunur(kok)) {
+      return kok;
+    }
+    else if (kalinKok && sozlukteBulunur(kalinKok)) {
+      return kalinKok;
+    }
   }
   return null;
 }

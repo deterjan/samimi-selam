@@ -18,9 +18,9 @@ function makePlural(noun) {
 function timedGreetingWords(hour) {
 	if (hour > 4 && hour <= 12)
 		return "günaydın";
-	else if (hour > 12 && hour <= 17)
+	else if (hour > 12 && hour <= 16)
 		return "tünaydın";
-	else if (hour > 17 && hour <= 22)
+	else if (hour > 16 && hour <= 22)
 		return "iyi akşamlar";
 	else
 		return "iyi geceler";
