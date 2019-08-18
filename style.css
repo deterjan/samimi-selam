@@ -1,4 +1,3 @@
-/* http://cssdeck.com/labs/large-pressable-css-button*/
 body {
 text-align: center;
 }
@@ -6,10 +5,24 @@ text-align: center;
 position:absolute;
 bottom:0;
 right: 15px;
-width:100%;
+width:70%;
 text-align:right;
 height: 30px;
 font-size: 10px;
+}
+#sharebox {
+position:absolute;
+bottom:0;
+left: 0;
+width:100%;
+text-align:left;
+height: 30px;
+font-size: 10px;
+display: flex;
+flex-direction: column-reverse;
+}
+#sharebox a {
+margin-bottom: 5px;
 }
 #selam {
 display: flex;
@@ -19,37 +32,61 @@ margin-right: 10px;
 }
 @media (max-width: 767px) {
 	#selam{
-	height: 100px;
+		height: 100px;
 	}
 }
-
-.yineButton {
-	background-color:#f05b94;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	border-radius:6px;
-	border:1px solid #ee1eb5;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	text-shadow:0px 1px 0px #c70067;
-	padding:10px 15px;
-	text-decoration:none;
-	font-size: 35px;
-	outline: none;
+.vertical {
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+.horizontal{
+display:flex;
 }
 
+/* adapted from https://www.bestcssbuttongenerator.com/ */
+.yineButton {
+background-color:#f05b94;
+-moz-border-radius:6px;
+-webkit-border-radius:6px;
+border-radius:6px;
+border:1px solid #ee1eb5;
+cursor:pointer;
+color:#ffffff;
+font-family:Arial;
+text-shadow:0px 1px 0px #c70067;
+padding:10px 15px;
+text-decoration:none;
+font-size: 35px;
+outline: none;
+height: 100%;
+}
 .tweetButton {
-	background-color:#1da1f2;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	border-radius:6px;
-	border:1px solid #337fed;
-	cursor:pointer;
-	padding:10px 15px;
-	outline: none;
-
-	content:url(./tw.png);
-	max-height: 50px;
-	margin-left: 10px;
+background-color:#1da1f2;
+-moz-border-radius:6px;
+-webkit-border-radius:6px;
+border-radius:6px;
+border:1px solid #337fed;
+cursor:pointer;
+padding:5px 5px;
+outline: none;
+content:url(./twitter.png);
+max-height: 40px;
+max-width: 40px;
+margin-left: 10px;
+}
+.whatsappButton {
+background-color:#6bc026;
+-moz-border-radius:6px;
+-webkit-border-radius:6px;
+border-radius:6px;
+border:1px solid #268a16;
+cursor:pointer;
+padding:5px 5px;
+outline: none;
+content:url(./whatsapp.png);
+max-height: 40px;
+max-width: 40px;
+margin-left: 10px;
+display: none;
 }

@@ -12,37 +12,45 @@
       </style>
    </head>
    <body>
-      <div style="display:flex;flex-direction:column;align-items:center;">
+      <div class="vertical">
          <h1 id="selam"></h1>
-         <div style="display:flex;">
+         <div class="horizontal">
             <button class="yineButton" onclick="regreet()">OLMADI YİNE</button>
-            <a id="twit" href="#" class="tweetButton"></a>
          </div>
       </div>
       
       <div id="footer">
          bu boktan projeye ilham olan merve ve yağmur'a teşekkürler
       </div>
+      <div id="sharebox">
+         <a id="twitter" href="#" class="tweetButton"></a>
+         <a id="whatsapp" href="whatsapp://send" data-text="" class="whatsappButton wa_btn" style="display:none"></a>
+      </div>
       <script type="text/javascript">
-         function setTweetLink(greeting) {
+         function setTwitterLink(greeting) {
             const baseTweetUrl = "https://twitter.com/intent/tweet?";
             const samimiUrl = "https://deterjan.github.io/samimi-selam/";
             let tweetUrl = baseTweetUrl + "text=" + greeting + " " + samimiUrl;
-            document.getElementById("twit").href = tweetUrl;
+            document.getElementById("twitter").href = tweetUrl;
+         }
+
+         function setWhatsappLink(greeting) {
+            document.getElementById("whatsapp").dataset.text = greeting;
          }
 
          function regreet() {
             const greeting = makeGreeting();
             document.getElementById("selam").innerText = greeting;
             addGreetingToQueue(greeting);
-            setTweetLink(greeting);
+            setTwitterLink(greeting);
+            setWhatsappLink(greeting);
          }
 
          function previousGreeting() {
             const greeting = getPreviousGreeting();
             if (greeting) {
                document.getElementById("selam").innerText = greeting;
-               setTweetLink(greeting);
+               setTwitterLink(greeting);
             }
          }
 
@@ -50,7 +58,7 @@
             const greeting = getNextGreeting();
             if (greeting) {
                document.getElementById("selam").innerText = greeting;
-               setTweetLink(greeting);
+               setTwitterLink(greeting);
             }
          }
          
@@ -66,6 +74,9 @@
          document.getElementById("selam").addEventListener("click", copySelam);
 
          regreet();
+      </script>
+      <script type="text/javascript">
+         if(typeof wabtn4fg==="undefined"){wabtn4fg=1;h=document.head||document.getElementsByTagName("head")[0],s=document.createElement("script");s.type="text/javascript";s.src="dist/whatsapp-button.js";h.appendChild(s);}
       </script>
    </body>
 </html>
