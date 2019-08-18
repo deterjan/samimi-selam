@@ -20,7 +20,10 @@
       </div>
       
       <div id="footer">
-         bu boktan projeye ilham olan merve ve yağmur'a teşekkürler
+         <ul>
+            <li>bana selam verin: <a id="tweetMe" href="#">@deterjan</a></li>
+            <li>bu boktan projeye ilham olan merve ve yağmur'a teşekkürler</li>
+         </ul>
       </div>
       <div id="sharebox">
          <a id="twitter" href="#" class="tweetButton"></a>
@@ -30,8 +33,8 @@
          function setTwitterLink(greeting) {
             const baseUrl = "https://twitter.com/intent/tweet?";
             const samimiUrl = "https://deterjan.github.io/samimi-selam/";
-            let tweetUrl = baseUrl + "text=" + greeting + " " + samimiUrl;
-            document.getElementById("twitter").href = tweetUrl;
+            document.getElementById("twitter").href = baseUrl + "text=" + greeting + " " + samimiUrl;;
+            document.getElementById("tweetMe").href = baseUrl + "text=@deterjan " + greeting;
          }
 
          function setWhatsappLink(greeting) {
