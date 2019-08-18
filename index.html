@@ -24,7 +24,7 @@
       </div>
       <div id="sharebox">
          <a id="twitter" href="#" class="tweetButton"></a>
-         <a id="whatsapp" href="whatsapp://send" data-text="" class="whatsappButton wa_btn"></a>
+         <a id="whatsapp" href="whatsapp://send" data-text="" class="whatsappButton"></a>
       </div>
       <script type="text/javascript">
          function setTwitterLink(greeting) {
@@ -35,7 +35,7 @@
          }
 
          function setWhatsappLink(greeting) {
-            document.getElementById("whatsapp").dataset.text = greeting;
+            document.getElementById("whatsapp").dataset.text =  encodeURIComponent(greeting);
          }
 
          function regreet() {
