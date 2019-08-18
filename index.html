@@ -7,6 +7,7 @@
       <script src="kelimeler.js"></script>
       <script src="tamlama.js"></script>
       <script src="samimi.js"></script>
+      <script src="kuyruk.js"></script>
       <link rel="stylesheet" type="text/css" href="style.css">
       </style>
    </head>
@@ -17,7 +18,6 @@
             <button class="yineButton" onclick="regreet()">OLMADI YİNE</button>
             <button class="yineButton" onclick="previousGreeting()">GERİ</button>
             <button class="yineButton" onclick="nextGreeting()">İLERİ</button>
-
             <a id="twit" href="#" class="tweetButton"></a>
          </div>
       </div>
@@ -36,6 +36,7 @@
          function regreet() {
             const greeting = makeGreeting();
             document.getElementById("selam").innerText = greeting;
+            addGreetingToQueue(greeting);
             setTweetLink(greeting);
          }
 
@@ -46,6 +47,7 @@
                setTweetLink(greeting);
             }
          }
+
          function nextGreeting() {
             const greeting = getNextGreeting();
             if (greeting) {
@@ -53,9 +55,6 @@
                setTweetLink(greeting);
             }
          }
-
-         
-         regreet();
          
          function copySelam(){
             var range = document.createRange();
@@ -67,6 +66,8 @@
             alert("muhteşem selamı kopyaladınız");
          }
          document.getElementById("selam").addEventListener("click", copySelam);
+
+         regreet();
       </script>
    </body>
 </html>
