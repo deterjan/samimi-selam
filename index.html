@@ -24,18 +24,19 @@
       </div>
       <div id="sharebox">
          <a id="twitter" href="#" class="tweetButton"></a>
-         <a id="whatsapp" href="whatsapp://send" data-text="" class="whatsappButton"></a>
+         <a id="whatsapp" href="#" class="whatsappButton"></a>
       </div>
       <script type="text/javascript">
          function setTwitterLink(greeting) {
-            const baseTweetUrl = "https://twitter.com/intent/tweet?";
+            const baseUrl = "https://twitter.com/intent/tweet?";
             const samimiUrl = "https://deterjan.github.io/samimi-selam/";
-            let tweetUrl = baseTweetUrl + "text=" + greeting + " " + samimiUrl;
+            let tweetUrl = baseUrl + "text=" + greeting + " " + samimiUrl;
             document.getElementById("twitter").href = tweetUrl;
          }
 
          function setWhatsappLink(greeting) {
-            document.getElementById("whatsapp").dataset.text =  encodeURIComponent(greeting);
+            const baseUrl = "whatsapp://send?text="
+            document.getElementById("whatsapp").href = baseUrl + encodeURIComponent(greeting);
          }
 
          function regreet() {
