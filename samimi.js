@@ -44,6 +44,6 @@ function makeGreeting() {
 	let greetingWords = timedGreetingWords(new Date().getHours());
 	let adjective = pickRandom(turkishAdjectives);
 	let noun = makePlural(clearSuffix(pickRandom(turkishNouns)));
-
-	return (greetingWords + " " + adjective + " " + noun);
+	let greeting = (greetingWords + " " + adjective + " " + noun); 
+	return greeting;
 }
