@@ -47,7 +47,3 @@ function makeGreeting() {
 
 	return (greetingWords + " " + adjective + " " + noun);
 }
-
-function regreet() {
-	document.getElementById("selam").innerText = makeGreeting();
-}
