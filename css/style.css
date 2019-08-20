@@ -1,94 +1,103 @@
 body {
-text-align: center;
+    text-align: center;
 }
+
 #footer {
-position:absolute;
-right: 15px;
-width:75%;
-text-align:right;
-font-size: 12px;
-bottom: 5px;
+    position: absolute;
+    right: 15px;
+    width: 75%;
+    text-align: right;
+    font-size: 12px;
+    bottom: 5px;
 }
+
 #footer li {
-list-style: none;
+    list-style: none;
 }
-#sharebox {
-position:absolute;
-bottom:0;
-left: 0;
-width:100%;
-text-align:left;
-height: 30px;
-font-size: 10px;
-display: flex;
-flex-direction: column-reverse;
-}
-#sharebox a {
-margin-bottom: 5px;
-}
+
 #selam {
-display: flex;
-align-items: center;
-margin-left: 10px;
-margin-right: 10px;  
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
 }
+
 @media (max-width: 767px) {
-	#selam{
-		height: 100px;
-	}
+    #selam {
+        height: 100px;
+    }
 }
+
 .vertical {
-display:flex;
-flex-direction:column;
-align-items:center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.horizontal{
-display:flex;
+
+.horizontal {
+    display: flex;
 }
 
 /* adapted from https://www.bestcssbuttongenerator.com/ */
 .yineButton {
-background-color:#f05b94;
--moz-border-radius:6px;
--webkit-border-radius:6px;
-border-radius:6px;
-border:1px solid #ee1eb5;
-cursor:pointer;
-color:#ffffff;
-font-family: Arial, sans-serif;
-text-shadow:0px 1px 0px #c70067;
-padding:10px 15px;
-text-decoration:none;
-font-size: 35px;
-outline: none;
-height: 100%;
+    background-color: #f05b94;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    border: 1px solid #ee1eb5;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    text-shadow: 0px 1px 0px #c70067;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 35px;
+    outline: none;
+    height: 100%;
 }
+
+#linkbox {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    width: 100%;
+    text-align: left;
+    height: 30px;
+    font-size: 10px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+#linkbox a,button {
+    margin-bottom: 5px;
+}
+
+.linkButton {
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 5px 5px;
+    outline: none;
+    max-height: 40px;
+    max-width: 40px;
+}
+
+.githubButton {
+    background-color: #d7d7d7;
+    border: 1px solid #777777;
+    content: url(../img/github.png);
+}
+
 .tweetButton {
-background-color:#1da1f2;
--moz-border-radius:6px;
--webkit-border-radius:6px;
-border-radius:6px;
-border:1px solid #337fed;
-cursor:pointer;
-padding:5px 5px;
-outline: none;
-content:url(../img/twitter.png);
-max-height: 40px;
-max-width: 40px;
-margin-left: 10px;
+    background-color: #1da1f2;
+    border: 1px solid #337fed;
+    content: url(../img/twitter.png);
 }
+
 .whatsappButton {
-background-color:#6bc026;
--moz-border-radius:6px;
--webkit-border-radius:6px;
-border-radius:6px;
-border:1px solid #268a16;
-cursor:pointer;
-padding:5px 5px;
-outline: none;
-content:url(../img/whatsapp.png);
-max-height: 40px;
-max-width: 40px;
-margin-left: 10px;
-display: none;
+    background-color: #6bc026;
+    border: 1px solid #268a16;
+    content: url(../img/whatsapp.png);
+    display: none;
 }
