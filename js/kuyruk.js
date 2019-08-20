@@ -1,5 +1,5 @@
 function GreetingQueue(greetings) {
-	this.MAX_SIZE = 15;
+	this.MAX_SIZE = 10;
 	this.greetings = greetings;
 }
 
