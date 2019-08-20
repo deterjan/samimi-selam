@@ -11245,4 +11245,4 @@ let turkishAdjectives = [
 "şiddetli",
 "şişkin",
 "şişman"
-]
+];
