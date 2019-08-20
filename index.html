@@ -6,12 +6,15 @@
     <title>Samimi Selamlama Sitesi</title>
     <script src="build.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="lib/tingle/tingle.min.css">
+    <script src="lib/tingle/tingle.min.js"></script>
 </head>
 <body>
 <div class="vertical">
-    <h1 id="selam" onclick="copySelam()"></h1>
-    <div class="horizontal">
+    <h1 id="selam" onclick="copyNodeContent(document.getElementById('selam'))"></h1>
+    <div class="vertical">
         <button class="yineButton" onclick="regreet()">OLMADI YİNE</button>
+        <button class="gecmisButton" onclick="showHistoryModal()">ZAMAN MAKİNESİ</button>
     </div>
 </div>
 
@@ -47,14 +50,43 @@
     setWhatsappLink(greeting);
   }
 
-  function copySelam() {
+  function copyNodeContent(node) {
     let range = document.createRange();
-    range.selectNodeContents(document.getElementById("selam"));
+    range.selectNodeContents(node);
     let selection = window.getSelection();
     selection.removeAllRanges();
     selection.addRange(range);
     document.execCommand("copy");
     alert("muhteşem selamı kopyaladınız");
+    selection.removeAllRanges();
+  }
+
+  function showHistoryModal() {
+    let modal = new tingle.modal({
+      footer: false,
+      stickyFooter: false,
+      closeMethods: ['overlay', 'button', 'escape'],
+      closeLabel: "ŞİMDİYE DÖN",
+      cssClass: ['custom-class-1', 'custom-class-2'],
+      onOpen: function () {
+      },
+      onClose: function () {
+      },
+      beforeClose: function () {
+        return true;
+      }
+    });
+
+    let oldGreetingsDiv = document.createElement("div");
+    getLastGreetings().forEach(greeting => {
+      let greetingNode = document.createElement("p");
+      greetingNode.innerText = greeting;
+      greetingNode.addEventListener('click', () => copyNodeContent(greetingNode));
+      oldGreetingsDiv.appendChild(greetingNode);
+    });
+
+    modal.setContent(oldGreetingsDiv);
+    modal.open();
   }
 
   function isMobile() {

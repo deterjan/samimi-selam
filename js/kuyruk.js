@@ -1,62 +1,26 @@
-function GreetingQueue(size, index, greetings) {
-	this.size = size;
-	this.index = index;
+function GreetingQueue(greetings) {
+	this.MAX_SIZE = 15;
 	this.greetings = greetings;
 }
 
 function loadGreetingQueue() {
-	if ("size" in sessionStorage) {
-		let size = parseInt(sessionStorage.getItem("size"), 10);
-		let index = parseInt(sessionStorage.getItem("index"), 10);
-		let greetings = JSON.parse(sessionStorage.getItem("greetings"));
-		return new GreetingQueue(size, index, greetings);
+	if ("lastGreetings" in sessionStorage) {
+		let greetings = JSON.parse(sessionStorage.getItem("lastGreetings"));
+		return new GreetingQueue(greetings);
 	}
-	return new GreetingQueue(0, -1, []);
+	return new GreetingQueue([]);
 }
 
 function saveGreetingQueue(queue) {
-	sessionStorage.setItem("size", queue.size.toString());
-	sessionStorage.setItem("index", queue.index.toString());
-	sessionStorage.setItem("greetings", JSON.stringify(queue.greetings));
-}
-
-function hasNextGreeting(queue) {
-	return (queue.index < (queue.size - 1));
-}
-
-function hasPreviousGreeting(queue) {
-	return (queue.index > 0);
+	sessionStorage.setItem("lastGreetings", JSON.stringify(queue.greetings));
 }
 
 function addGreetingToQueue(greeting) {
 	let queue = loadGreetingQueue();
-	queue.greetings = queue.greetings.slice(0, queue.index + 1)
-	queue.greetings.push(greeting);
-	queue.size = queue.greetings.length;
-	queue.index = queue.size - 1;
+	queue.greetings = [greeting].concat(queue.greetings.slice(0, queue.MAX_SIZE));
 	saveGreetingQueue(queue);
 }
 
-function getPreviousGreeting() {
-	let queue = loadGreetingQueue();
-
-	if (hasPreviousGreeting(queue)) {
-		let prevGreeting = queue.greetings[queue.index - 1];
-		queue.index--;
-		saveGreetingQueue(queue);
-		return prevGreeting;
-	}
-	else return null;
-}
-
-function getNextGreeting() { 
-	let queue = loadGreetingQueue();
-
-	if (hasNextGreeting(queue)) {
-		let nextGreeting = queue.greetings[queue.index + 1];
-		queue.index++;
-		saveGreetingQueue(queue);
-		return nextGreeting;
-	}
-	else return null;
+function getLastGreetings() {
+	return loadGreetingQueue().greetings.slice(1);
 }
