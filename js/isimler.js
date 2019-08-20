@@ -31067,7 +31067,7 @@ let turkishNouns = [
   "nüfus coğrafyası",
   "nüfus cüzdanı",
   "nüfus kalemi",
-  "nüfus kaydı",
+  "nüfus kayıt",
   "nüfus kefaseti",
   "nüfus kesafeti",
   "nüfus kâğıdı",
