@@ -4,15 +4,15 @@ function GreetingQueue(greetings) {
 }
 
 function loadGreetingQueue() {
-	if ("lastGreetings" in sessionStorage) {
-		let greetings = JSON.parse(sessionStorage.getItem("lastGreetings"));
+	if ("lastGreetings" in localStorage) {
+		let greetings = JSON.parse(localStorage.getItem("lastGreetings"));
 		return new GreetingQueue(greetings);
 	}
 	return new GreetingQueue([]);
 }
 
 function saveGreetingQueue(queue) {
-	sessionStorage.setItem("lastGreetings", JSON.stringify(queue.greetings));
+	localStorage.setItem("lastGreetings", JSON.stringify(queue.greetings));
 }
 
 function addGreetingToQueue(greeting) {
