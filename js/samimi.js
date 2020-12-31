@@ -41,7 +41,12 @@ function clearSuffix(noun) {
 }
 
 function makeGreeting() {
-	let greetingWords = timedGreetingWords(new Date().getHours());
+	const now = new Date();
+	let greetingWords;
+
+	if (now.getDate()===31 && now.getMonth()===11) greetingWords = "mutlu yıllar";
+	else greetingWords = timedGreetingWords(now.getHours());
+
 	let adjective = pickRandom(turkishAdjectives);
 	let noun = makePlural(clearSuffix(pickRandom(turkishNouns)));
 	let greeting = (greetingWords + " " + adjective + " " + noun); 
